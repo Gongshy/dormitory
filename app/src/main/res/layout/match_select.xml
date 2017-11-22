@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
-        android:id="@+id/login"
+        android:id="@+id/SingleMatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="登录账号" />
+        android:text="Single Match" />
     <Button
-        android:id="@+id/psinfo"
+        android:id="@+id/DoubleMatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="查询个人信息" />
+        android:text="Double Match" />
     <Button
-        android:id="@+id/emp_bd"
+        android:id="@+id/TripleMatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="查询宿舍楼空床数" />
+        android:text="Triple Match" />
     <Button
-        android:id="@+id/slt_dorm"
+        android:id="@+id/QuadrupleMatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="选择宿舍" />
+        android:text="Quadruple Match" />
 </LinearLayout>
