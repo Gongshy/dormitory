@@ -12,11 +12,11 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:text="个人信息"
+            android:text="信息填写"
             android:textColor="#ffffffff"
             android:textSize="20.0dip"/>
         <ImageView
-            android:id="@+id/title_back"
+            android:id="@+id/title_bak"
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
             android:layout_alignParentLeft="true"
@@ -35,108 +35,112 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/stu_id"
+            android:id="@+id/sel_lc2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
+            android:textSize="20dip"
             android:textStyle="bold"
-            android:text="学号：" />
-        <TextView
-            android:id="@+id/stuid"
+            android:text="选楼："/>
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_toRightOf="@+id/sel_lc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
-            android:layout_toRightOf="@+id/stu_id"
-            android:text="###"/>
+            />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/stu_nm"
+            android:id="@+id/st_id1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
+            android:textSize="20dip"
             android:textStyle="bold"
-            android:text="姓名：" />
-        <TextView
-            android:id="@+id/stunm"
-            android:layout_width="wrap_content"
+            android:text="同住人学号："
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/stid1"
+            android:textSize="20dip"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40px"
-            android:layout_toRightOf="@+id/stu_nm"
-            android:text="###"/>
+            android:layout_toRightOf="@+id/st_id1"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/stu_sx"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40px"
+            android:id="@+id/st_vr1"
+            android:textSize="20dip"
             android:textStyle="bold"
-            android:text="性别：" />
-        <TextView
-            android:id="@+id/stusx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
-            android:layout_toRightOf="@+id/stu_sx"
-            android:text="###"/>
+            android:text="同住人验证码："
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/stvr1"
+            android:textSize="20dip"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/st_vr1"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/stu_vr"
+            android:id="@+id/st_id2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
+            android:textSize="20dip"
             android:textStyle="bold"
-            android:text="校验码：" />
-        <TextView
-            android:id="@+id/stuvr"
-            android:layout_width="wrap_content"
+            android:text="同住人学号："
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/stid2"
+            android:textSize="20dip"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40px"
-            android:layout_toRightOf="@+id/stu_vr"
-            android:text="###"/>
+            android:layout_toRightOf="@+id/st_id2"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/stu_lc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40px"
+            android:id="@+id/st_vr2"
+            android:textSize="20dip"
             android:textStyle="bold"
-            android:text="校区：" />
-        <TextView
-            android:id="@+id/stulc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
-            android:layout_toRightOf="@+id/stu_lc"
-            android:text="###"/>
+            android:text="同住人验证码："
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/stvr2"
+            android:textSize="20dip"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/st_vr2"/>
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/stu_gd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40px"
+        <Button
+            android:id="@+id/sure2"
+            android:textSize="0dip"
             android:textStyle="bold"
-            android:text="年级："/>
-        <TextView
-            android:id="@+id/stugd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40px"
-            android:layout_toRightOf="@+id/stu_gd"
-            android:text="###"/>
+            android:text="确定" />
     </RelativeLayout>
 </LinearLayout>

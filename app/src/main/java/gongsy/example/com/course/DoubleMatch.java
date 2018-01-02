@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -20,7 +21,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
-import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
@@ -32,10 +32,10 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * Created by Gongsy on 2017/11/8.
+ * Created by Gongsy on 2018/1/1.
  */
 
-public class SingleMatch extends AppCompatActivity implements View.OnClickListener{
+public class DoubleMatch extends AppCompatActivity implements View.OnClickListener{
     private static TrustManager myX509TrustManager = new X509TrustManager() {
 
         @Override
@@ -54,16 +54,19 @@ public class SingleMatch extends AppCompatActivity implements View.OnClickListen
         }
     };
     private int errcode=1;
-    private ImageView mBackBtn;
     private Button sure;
-    private String id="",loc="";
+    private String id="",loc="",id1="",vr1="";
+    EditText stuid1,stuvr1;
+    private ImageView mBackBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.single_match);
+        setContentView(R.layout.double_match);
         Intent i=getIntent();
-        id=i.getStringExtra("ex");
-        sure=(Button)findViewById(R.id.sure);
+        id=i.getStringExtra("id");
+        stuid1=(EditText)findViewById(R.id.stuid1);
+        stuvr1=(EditText)findViewById(R.id.stuvr1);
+        sure=(Button)findViewById(R.id.sure1);
         sure.setOnClickListener(this);
         mBackBtn=(ImageView)findViewById(R.id.title_bak);
         mBackBtn.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +77,7 @@ public class SingleMatch extends AppCompatActivity implements View.OnClickListen
         });
         final String[] s={"5","13","14","9","8"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, s);
-        Spinner sp = (Spinner) findViewById(R.id.spinner);
+        Spinner sp = (Spinner) findViewById(R.id.spinner1);
         sp.setAdapter(adapter);
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -88,7 +91,9 @@ public class SingleMatch extends AppCompatActivity implements View.OnClickListen
         });
     }
     public void onClick(View v) {
-        if(v.getId()==R.id.sure){
+        if(v.getId()==R.id.sure1){
+            id1=stuid1.getText().toString();
+            vr1=stuvr1.getText().toString();
             new Thread(thd).start();
         }
     }
@@ -99,13 +104,13 @@ public class SingleMatch extends AppCompatActivity implements View.OnClickListen
             Bundle data = msg.getData();
             int e= data.getInt("err");
             if(e==0){
-                Intent in=new Intent(SingleMatch.this,Success.class);
+                Intent in=new Intent(DoubleMatch.this,Success.class);
                 in.putExtra("id",id);
                 in.putExtra("loc",loc);
-                in.putExtra("st","0");
+                in.putExtra("st","1");
                 startActivity(in);
             }else{
-                Toast.makeText(SingleMatch.this, "未选择成功",Toast.LENGTH_LONG).show();
+                Toast.makeText(DoubleMatch.this, "未选择成功",Toast.LENGTH_LONG).show();
             }
         }
     };
@@ -116,7 +121,7 @@ public class SingleMatch extends AppCompatActivity implements View.OnClickListen
             String lc5,lc13,lc14,lc9,lc8;
             try {
                 String ad="https://api.mysspku.com/index.php/V1/MobileCourse/SelectRoom";
-                String t="num=0&stuid="+id+"&buildingNo="+loc;
+                String t="num=1&stuid="+id+"&stu1id="+id1+"&v1code="+vr1+"&buildingNo="+loc;
                 URL url = new URL(ad);
                 SSLContext context = null;
                 context = SSLContext.getInstance("TLS");

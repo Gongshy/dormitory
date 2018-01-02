@@ -7,24 +7,20 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    String id="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
-        Button Log_in=(Button)findViewById(R.id.login);
-        Log_in.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent=new Intent(MainActivity.this,Login.class);
-                startActivity(intent);
-            }
-        });
+        Intent intent=getIntent();
+        id=intent.getStringExtra("extra_data");
         Button Ps_info=(Button)findViewById(R.id.psinfo);
         Ps_info.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent=new Intent(MainActivity.this,Psinfo.class);
+                intent.putExtra("extra",id);
                 startActivity(intent);
             }
         });
@@ -33,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent=new Intent(MainActivity.this,Empbed.class);
+                startActivity(intent);
+            }
+        });
+        Button Sel_dorm=(Button)findViewById(R.id.slt_dorm);
+        Sel_dorm.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent=new Intent(MainActivity.this,MatchSelect.class);
+                intent.putExtra("extra",id);
                 startActivity(intent);
             }
         });
